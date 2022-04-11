@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='secret_logo.jpg') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='body.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__logo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__menu-nav.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log.css') }}">
+
+    <title>secret</title>
+</head>
+
+<body>
+    <header class="menu-header">
+        <div>
+            <img class="menu-header__logo"
+                 alt="logo of secret (just stylized S letter)"
+                 src= {{ url_for('static', filename = "secret_logo.jpg") }} >
+
+            <nav class="menu-header__menu-nav">
+                <ul>
+                    <li aria-label="Home">     <a methods="GET" href="{{ url_for('start') }}"> Home </a> </li>
+                    <li aria-label="Contacts"> <a methods="GET" href="{{ url_for('contacts', self_name=from_name) }}"> Contacts </a> </li>
+                    <li aria-label="Gallery">  <a methods="GET" href=""> Gallery </a> </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="center-log">
+            {% if img_name %}
+                <h2> Your image was successfully encrypted. </h2>
+                <figure>
+                    <img src="{{ url_for('static', filename = img_name) }}" alt="Encrypted image">
+                    <figcaption>Encrypted '{{ img_name }}"</figcaption>
+                </figure>
+                <br>
+                <a href="{{ url_for('result', from_name=from_name, to_name=to_name, read_only=read_only) }}" methods="GET">
+                    <button type="submit" class="center_log"> Decrypt </button>
+                </a>
+            {% else %}
+                <h2>Something went wrong. Sorry, but your image couldn't be encrypted. Please report your problem and try again later.</h2>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+        <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='secret_logo.jpg') }}">
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='body.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__logo.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__menu-nav.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__input.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__send-form.css') }}">
+        <title>secret</title>
+    </head>
+
+    <script src="{{ url_for('static' , filename='center-log__send-form.js')}}"></script>
+
+    <body>
+        <header class="menu-header">
+            <div>
+                <img class="menu-header__logo"
+                     alt="logo of secret (just stylized S letter)"
+                     src= "{{ url_for('static', filename = 'secret_logo.jpg') }}">
+
+                <nav class="menu-header__menu-nav">
+                    <ul>
+                        <li aria-label="Home"> <a href="{{ url_for('start') }}"> Home  </a> </li>
+                        <li aria-label="Contacts"> <a href="{{ url_for('contacts', self_name=from_name) }}" methods="GET"> Contacts </a> </li>
+                        <li aria-label="Gallery"> <a href=""> Gallery </a> </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="center-log">
+                <h2> Send image to <strong class="center-log__send_name">{{ to_name }}</strong>: </h2>
+
+                <form action="{{ url_for('result', from_name=from_name, to_name=to_name, read_only='yes') }}"
+                      method="POST"
+                      enctype="multipart/form-data"
+                      class="center-log__send-form">
+
+                    <input type="file"
+                           name="img"
+                           id="img"
+                           accept="image/jpeg,image/png,image/jpg,image/bmp"
+                           required
+                           class="center_log_send_input">
+
+                    <input type="text"
+                           name="img_description"
+                           placeholder="description message"
+                           autocomplete="off"
+                           style="width: 80%"
+                           onkeydown="limit_len(this);"
+                           onkeyup="limit_len(this);"
+                           onsubmit="limit_len(this);">
+
+                    <input type="submit" value="Send">
+
+                </form>
+
+            </div>
+        </main>
+    </body>
+</html>
