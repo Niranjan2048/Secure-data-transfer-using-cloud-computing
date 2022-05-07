@@ -17,11 +17,11 @@
 </head>
 
 <body>
-    <header class="menu-header">
+    <!-- <header class="menu-header">
         <div>
             <img class="menu-header__logo"
-                 alt="logo of secret (just stylized S letter)"
-                 src= "{{ url_for('static', filename = 'secret_logo.jpg') }}">
+                 alt="logo of Screte (just stylized S letter)"
+                 src= "{{ url_for('static', filename = 'Screte_logo.jpg') }}">
 
             <nav class="menu-header__menu-nav">
                 <ul>
@@ -31,19 +31,28 @@
                 </ul>
             </nav>
         </div>
-    </header>
+    </header> -->
+    <img class="menu-header__logo" alt="logo of secret (stylized S letter)"
+        aria-label="logo of secret (stylized S letter)" src="{{ url_for('static', filename = 'secret_logo.jpg') }}"
+        href="{{ url_for('start') }}">
+    <nav class="navMenu">
+        <a href="{{ url_for('start') }}">Home</a>
+        <a href="{{ url_for('contacts', self_name=self_name) }}">Contacts</a>
+        <a href="{{ url_for('gallery') }}">Gallery</a>
+        <a href="#">About</a>
+        <div class="dot"></div>
+    </nav>
 
     <main>
         <div class="center-log">
-            <img src="http://fundacionseraphim.org/wp-content/uploads/2017/09/Contacts-icon.png"
-                 alt="contact icon"
-                 aria-label="contact icon"
-                 class="center-log__contact__icon">
-            <br/>
+            <img src="http://fundacionseraphim.org/wp-content/uploads/2017/09/Contacts-icon.png" alt="contact icon"
+                aria-label="contact icon" class="center-log__contact__icon">
+            <br />
             <h2 style="margin: 1%"> {{ profile_name }} </h2>
             <div class="center-log__contacts__actions">
-                <a href="{{ url_for('contacts', self_name=self_name, new_contact_name=profile_name) }}">  <button>add</button> </a>
-                <a href="{{ url_for('contacts', self_name=self_name, new_contact_name='') }}">            <button>not</button> </a>
+                <a href="{{ url_for('contacts', self_name=self_name, new_contact_name=profile_name) }}">
+                    <button>add</button> </a>
+                <a href="{{ url_for('contacts', self_name=self_name, new_contact_name='') }}"> <button>not</button> </a>
             </div>
         </div>
     </main>
@@ -55,4 +64,5 @@
 
     </div>
 </body>
+
 </html>

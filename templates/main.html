@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__menu-nav.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__input.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dot.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dot1.css') }}">
 
         <title>Secret 🤫</title>
     </head>
@@ -22,28 +22,36 @@
 
     <body>
        
-        <header class="menu-header">
-            <div>
+        <!-- <header class="menu-header">
+            <div> -->
                 
                 <img class="menu-header__logo"
                      alt="logo of secret (stylized S letter)"
                      aria-label="logo of secret (stylized S letter)"
-                     src= "{{ url_for('static', filename = 'secret_logo.jpg') }}">
+                     src= "{{ url_for('static', filename = 'secret_logo.jpg') }}"
+                     href="{{ url_for('start') }}">
 
-                <nav class="menu-header__menu-nav">
+         <!-- <nav class="menu-header__menu-nav">
                     <ul>
                         <li aria-label="Home">     <a href="{{ url_for('start') }}"> Home  </a> </li>
                         <li aria-label="Contacts"> <a href="#"> Contacts </a> </li>
                         <li aria-label="Gallery">  <a href="{{ url_for('gallery') }}"> Gallery </a> </li>
                     </ul>
+                </nav>   -->
+                <nav class="navMenu">
+                    <a href="{{ url_for('start') }}">Home</a>
+                    <a href="#">Contacts</a>
+                    <a href="{{ url_for('gallery') }}">Gallery</a>
+                    <a href="#">About</a>
+                    <div class="dot"></div>
                 </nav>
-               
-            </div>
-        </header>
+        
+            
+        <!-- </header> -->
      
 
         <main>
-            <!--   Log In   -->
+               
             <div class="center-log" id="log_in">
                 <h1 aria-label="Log In"> - Log in  -</h1>
                 <form action="{{ url_for('contacts') }}" method="POST">
@@ -53,21 +61,21 @@
                 </form>
             </div>
 
-            <span class="dot" id="dot_log_switch"
+            <span class="dot1" id="dot1_log_switch"
                   onclick="switch_log()"
-                  aria-label="clickable dot to switch between login and registration">
-            </span>
+                  aria-label="clickable dot1 to switch between login and registration">
+            </span> 
 
-            <!--   Sign Up   -->
+            <!-- Sign Up   -->
             <div class="center-log" id="sign_up">
-                <h1 aria-label="Create your account: "> >  Create your account: </h1>
+                <h1 aria-label="Create your account: "> Create your account </h1>
                 <form action="{{ url_for('contacts') }}" method="POST">
                     <input name="new_name"     placeholder="user-name"       type="text"      aria-label="user name"       autocomplete="off"/>
                     <input name="first_name"   placeholder="first name"      type="text"      aria-label="first name"      autocomplete="off"/>
                     <input name="last_name"    placeholder="last name"       type="text"      aria-label="last name"       autocomplete="off"/>
                     <input name="new_pass"     placeholder="password"        type="password"  aria-label="password"        autocomplete="off"/>
                     <input name="new_pass_rep" placeholder="repeat password" type="password"  aria-label="repeat password" autocomplete="off"/>
-                    <button type="submit" aria-label="Sign Up" > Sign Up </button>
+                    <button type="submit" aria-label="Sign Up" >Sign Up </button>
                 </form>
             </div>
         </main>

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header class="menu-header">
+    <!-- <header class="menu-header">
         <div>
             <img class="menu-header__logo"
                  alt="logo of secret (just stylized S letter)"
@@ -28,8 +28,19 @@
                 </ul>
             </nav>
         </div>
-    </header>
-
+    </header>  -->
+     <img class="menu-header__logo"
+    alt="logo of secret (stylized S letter)"
+    aria-label="logo of secret (stylized S letter)"
+    src= "{{ url_for('static', filename = 'secret_logo.jpg') }}"
+    href="{{ url_for('start') }}">
+    <nav class="navMenu">
+        <a  methods="GET" href="{{ url_for('start') }}">Home</a>
+        <a  methods="GET" href="{{ url_for('contacts', self_name=from_name) }}">Contacts</a>
+        <a methods="GET" href="">Gallery</a>
+        <a href="#">About</a>
+        <div class="dot"></div>
+    </nav>
     <main>
         <div class="center-log">
             {% if img_names %}
