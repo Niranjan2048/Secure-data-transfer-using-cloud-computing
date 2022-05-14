@@ -1,6 +1,6 @@
 import dropbox
 from dropbox import DropboxOAuth2FlowNoRedirect
-# simport config
+# import config
 
 
 #dbx = dropbox.Dropbox(token)
