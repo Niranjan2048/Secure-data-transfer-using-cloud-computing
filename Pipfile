@@ -8,6 +8,7 @@ flask = "*"
 gunicorn = "*"
 psycopg2 = "*"
 numpy = "*"
+opencv-python = "*"
 
 [dev-packages]
 
