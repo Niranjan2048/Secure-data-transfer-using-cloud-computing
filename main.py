@@ -1,5 +1,5 @@
 import os
-
+import config
 from flask import Flask, request, render_template
 
 from secret_database.database import Database
@@ -151,7 +151,7 @@ def add_contact(self_name):
     return render_template("contacts.html", contacts=db.get_contacts(self_name), self_name=self_name)
 
 
-if __name__ == '__main__':
-    #app.run(debug=True)
-    app.run()
+# if __name__ == '__main__':
+#     #app.run(debug=True)
+#     app.run()
 

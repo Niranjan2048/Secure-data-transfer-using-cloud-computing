@@ -1,15 +1,15 @@
 import dropbox
-from secret_filesystem.dropbox_token import token
 from dropbox import DropboxOAuth2FlowNoRedirect
+import config
 
 
 #dbx = dropbox.Dropbox(token)
 
 
 dbx = dropbox.Dropbox(
-            app_key = "trbxejqrt11qk7x",
-            app_secret ="grz5rsfn4csqpme",
-            oauth2_refresh_token ="XN9UVd2MMeYAAAAAAAAAAYoKhVdL2IDpHHIgafuBd1uPpD67Ibphm-0oCE38gDPp",
+            app_key = config.app_key,
+            app_secret =config.app_secret,
+            oauth2_refresh_token =config.oauth2_refresh_token,
         )
 # APP_KEY = "trbxejqrt11qk7x"
 # auth_flow = DropboxOAuth2FlowNoRedirect(APP_KEY, use_pkce=True, token_access_type='offline',grant_type=refresh_token)
