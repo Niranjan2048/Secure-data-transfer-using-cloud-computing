@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
-gunicorn = "*"
+gunicorn = "==20.0.4"
 psycopg2 = "*"
 numpy = "*"
 opencv-python = "*"
