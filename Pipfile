@@ -9,6 +9,8 @@ gunicorn = "*"
 psycopg2 = "*"
 numpy = "*"
 opencv-python = "*"
+ffmpeg = "*"
+opencv-python-headless = "*"
 
 [dev-packages]
 
