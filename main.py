@@ -1,5 +1,4 @@
 import os
-# import config
 from flask import Flask, request, render_template
 
 from secret_database.database import Database
