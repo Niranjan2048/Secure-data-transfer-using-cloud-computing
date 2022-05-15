@@ -72,7 +72,7 @@ def contacts(self_name="", new_contact_name=""):
 @app.route('/send/<string:from_name>/<string:to_name>', methods=["GET", "POST"])
 def send(from_name, to_name):
     print("SEND- {} - {}~{}".format(request.method, from_name, to_name))
-    return render_template("send.html", from_name=from_name, to_name=to_name)
+    return render_template("send1.html", from_name=from_name, to_name=to_name)
 
 
 @app.route('/result/<string:from_name>/<string:to_name>', methods=["GET", "POST"])
@@ -147,7 +147,7 @@ def add_contact(self_name):
     if request.method == "POST":
         new_contact_name = request.form.get("new_contact_name")
         if db.get_general_user_info(new_contact_name):
-            return render_template("profile.html", profile_name=new_contact_name, self_name=self_name)
+            return render_template("profile1.html", profile_name=new_contact_name, self_name=self_name)
     return render_template("contacts1.html", contacts=db.get_contacts(self_name), self_name=self_name)
 
 

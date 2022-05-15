@@ -210,10 +210,87 @@ body .container .card .box .content a:hover {
 	 align-items: center;
 	 flex-direction: column;
 }
- body {
-	 margin: 0;
-	 color: #ccf;
-	 background: navy;
-	 font-family: 'Roboto', sans-serif;
-}
  
+.special_button {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  margin: 20px;
+  line-height: 60px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-white);
+  transition: var(--speed-normal);
+  border: 1px solid var(--color-red);
+}
+.special_button:hover {
+  border: 1px solid transparent;
+  background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+  transition-delay: 0.8s;
+  background-size: 180px;
+  animation: animate var(--speed-fast) steps(8) forwards;
+}
+.special_button:last-of-type {
+  border: 1px solid var(--color-purple);
+}
+.special_button:last-of-type:hover {
+  background: var(--color-purple) url(https://i.postimg.cc/FzBWFtKM/pixel2.png);
+}
+@keyframes animate {
+  0% {
+      background-position-y: 0;
+ }
+  100% {
+      background-position-y: -480px;
+ }
+}
+.image-input {
+  text-align: center;
+}
+.image-input input {
+  display: none;
+}
+.image-input label {
+  display: block;
+  color: #FFF;
+  background: #000;
+  padding: 0.3rem 0.6rem;
+  font-size: 115%;
+  cursor: pointer;
+}
+.image-input label i {
+  font-size: 125%;
+  margin-right: 0.3rem;
+}
+.image-input label:hover i {
+  animation: shake 0.35s;
+}
+.image-input img {
+  max-width: 175px;
+  display: none;
+}
+.image-input span {
+  display: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
