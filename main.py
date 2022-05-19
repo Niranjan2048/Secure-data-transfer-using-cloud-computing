@@ -23,7 +23,7 @@ app = start_app()
 @app.route('/', methods=["GET", "POST"])
 def start():
     print("MAIN - {}".format(request.method))
-    return render_template("main.html")
+    return render_template("main1.html")
 
 @app.route('/gallery')
 def gallery():
@@ -45,15 +45,15 @@ def contacts(self_name="", new_contact_name=""):
             if rep_password == password:
                 u_info = {"username": user_name, "first_name": f_name, "last_name": l_name, "password": password}
                 if db.add_user(u_info):
-                    return render_template("contacts.html", contacts=[user_name], self_name=user_name)
-            return render_template("main.html", log_msg="", reg_msg="You didn't repeat your password correctly.")
+                    return render_template("contacts1.html", contacts=[user_name], self_name=user_name)
+            return render_template("main1.html", log_msg="", reg_msg="You didn't repeat your password correctly.")
 
         # log in
         else:
             user_name, password = request.form.get("name"), request.form.get("password")
             if db.check_password(user_name, password):
-                return render_template("contacts.html", contacts=db.get_contacts(user_name), self_name=user_name)
-            return render_template("main.html", reg_msg="", log_msg="Wrong username or password. Try again.")
+                return render_template("contacts1.html", contacts=db.get_contacts(user_name), self_name=user_name)
+            return render_template("main1.html", reg_msg="", log_msg="Wrong username or password. Try again.")
 
     elif request.method == "GET":
 
@@ -63,15 +63,15 @@ def contacts(self_name="", new_contact_name=""):
         if self_name:
             if new_contact_name:
                 db.add_contact(self_name, new_contact_name)
-            return render_template("contacts.html", contacts=db.get_contacts(self_name), self_name=self_name)
+            return render_template("contacts1.html", contacts=db.get_contacts(self_name), self_name=self_name)
 
-        return render_template("main.html", reg_msg="", log_msg="")
+        return render_template("main1.html", reg_msg="", log_msg="")
 
 
 @app.route('/send/<string:from_name>/<string:to_name>', methods=["GET", "POST"])
 def send(from_name, to_name):
     print("SEND- {} - {}~{}".format(request.method, from_name, to_name))
-    return render_template("send.html", from_name=from_name, to_name=to_name)
+    return render_template("send1.html", from_name=from_name, to_name=to_name)
 
 
 @app.route('/result/<string:from_name>/<string:to_name>', methods=["GET", "POST"])
@@ -146,8 +146,8 @@ def add_contact(self_name):
     if request.method == "POST":
         new_contact_name = request.form.get("new_contact_name")
         if db.get_general_user_info(new_contact_name):
-            return render_template("profile.html", profile_name=new_contact_name, self_name=self_name)
-    return render_template("contacts.html", contacts=db.get_contacts(self_name), self_name=self_name)
+            return render_template("profile1.html", profile_name=new_contact_name, self_name=self_name)
+    return render_template("contacts1.html", contacts=db.get_contacts(self_name), self_name=self_name)
 
 
 if __name__ == '__main__':
