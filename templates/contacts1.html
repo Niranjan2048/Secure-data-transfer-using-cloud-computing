@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contacts_style.css') }}">
+
+    <title>secret 🤫</title>
+</head>
+
+<body>
+    <a href="{{ url_for('start') }}">
+    <img class="logo_img" src= "{{ url_for('static', filename = 'Frame_1.png') }}">
+</a>
+
+    <!-- search button -->
+    <div style="display:flex;flex-direction:column;">
+    
+    <div class="body-container">
+      <form action="{{ url_for('add_contact', self_name=self_name) }}" method="POST">
+        <h1>Search bar</h1>
+        <div class="search-bar">
+          <span class="search-icon"></span>
+          <form class="search" action="{{ url_for('add_contact', self_name=self_name) }}" method="POST">
+            <input name="new_contact_name" class="search" type="text" placeholder="Search new contact"/>
+            <button type="submit" class="btn">Go</button>
+          
+        </div>
+      </form>
+      </div>
+    <!-- search button -->
+      
+
+
+
+    <!-- contact cards -->
+    {% for c in contacts %}
+    <div class="container">
+        
+        <div class="card">
+        
+          <div class="box">
+            <div class="content">
+              <h2>\/</h2>
+              <h3>{{ c }}</h3>
+              
+              <a href="{{ url_for('send', from_name=self_name, to_name=c) }}" methods="GET">SEND</a>
+              <a href="{{ url_for('result', from_name=c, to_name=self_name, read_only="yes") }}" methods="GET">READ</a>
+            </div>
+            
+          </div>
+          
+        </div>
+        {% endfor %}
+        </div>
+
+</body>
+
+<script>
+    var icon = document.querySelector('.search-icon');
+    var form = document.querySelector('form.search');
+    console.log({icon,form});
+    
+
+    icon.addEventListener("click",function() {
+     form.classList.toggle('open');
+     console.log(form.classList.value);
+     if (form.classList.value.split().includes('open')) {
+         
+        form.children('input.search').focus();
+  }
+});
+</script>
+
+
+</html>

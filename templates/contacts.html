@@ -6,35 +6,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='secret_logo.jpg') }}">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='body.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__logo.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__menu-nav.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__input.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__contacts.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__contact.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log__contacts__actions.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='final_style.css') }}">
 
-    <title>secret</title>
+    <title>secret 🤫</title>
 </head>
 
 <body>
-    <!-- <header class="menu-header">
-        <div>
-            <img class="menu-header__logo" alt="logo of secret (just stylized S letter)"
-                src={{ url_for('static', filename = "secret_logo.jpg") }}>
-
-            <nav class="menu-header__menu-nav">
-                <ul>
-                    <li aria-label="Home"> <a methods="GET" href="{{ url_for('start') }}"> Home </a> </li>
-                    <li aria-label="Contacts"> <a methods="GET" href="{{ url_for('contacts', self_name=self_name) }}">
-                            Contacts </a> </li>
-                    <li aria-label="Gallery"> <a methods="GET" href=""> Gallery </a> </li>
-                </ul>
-            </nav>
-        </div>
-    </header>  -->
+   
     <img class="menu-header__logo" alt="logo of secret (stylized S letter)"
         aria-label="logo of secret (stylized S letter)" src="{{ url_for('static', filename = 'secret_logo.jpg') }}"
         href="{{ url_for('start') }}">

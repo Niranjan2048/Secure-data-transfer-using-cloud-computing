@@ -1,60 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='secret_logo.jpg') }}">
+    
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='body.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__logo.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu-header__menu-nav.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='center-log.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contacts_style.css') }}">
+    
 
-    <title>secret</title>
+    <title>secret 🤫</title>
 </head>
 
 <body>
-    <!-- <header class="menu-header">
-        <div>
-            <img class="menu-header__logo"
-                 alt="logo of secret (just stylized S letter)"
-                 src= "{{ url_for('static', filename = 'secret_logo.jpg') }}">
-            <nav class="menu-header__menu-nav">
-                <ul>
-                    <li aria-label="Home">      <a methods="GET" href="{{ url_for('start') }}"> Home  </a> </li>
-                    <li aria-label="Contacts">  <a methods="GET" href="{{ url_for('contacts', self_name=from_name) }}"> Contacts </a> </li>
-                    <li aria-label="Gallery">   <a methods="GET" href=""> Gallery </a> </li>
-                </ul>
-            </nav>
-        </div>
-    </header>  -->
-     <img class="menu-header__logo"
-    alt="logo of secret (stylized S letter)"
-    aria-label="logo of secret (stylized S letter)"
-    src= "{{ url_for('static', filename = 'secret_logo.jpg') }}"
-    href="{{ url_for('start') }}">
-    <nav class="navMenu">
-        <a  methods="GET" href="{{ url_for('start') }}">Home</a>
-        <a  methods="GET" href="{{ url_for('contacts', self_name=from_name) }}">Contacts</a>
-        <a methods="GET" href="">Gallery</a>
-        <a href="#">About</a>
-        <div class="dot"></div>
-    </nav>
+    <a href="{{ url_for('start') }}">
+    <img class="logo_img" src= "{{ url_for('static', filename = 'Frame_1.png') }}">
+</a>
+ 
+    
     <main>
-        <div class="center-log">
+        
+    <div class="container" style="display:flex;flex-direction:column;align-items: center;justify-content: center;">
             {% if img_names %}
                 <h2> Decrypted: </h2>
                 {% for img_name in img_names %}
-                    <figure>
-                        <img src="{{ url_for('static', filename = '_' + img_name + '.jpg') }}" alt="decoded image">
-                        <figcaption> Decrypted {{ img_name }}</figcaption>
+                    <figure style="text-align: center;justify-content: center;">
+                        <img style="max-width:80%;" src="{{ url_for('static', filename = '_' + img_name + '.jpg') }}" alt="decoded image">
+                        <h3><figcaption style="text-align: center;"> Decrypted {{ img_name }}</figcaption></h3>
                     </figure>
                 {% endfor %}
             {% else %}
                 <h2> Nothing to decrypt.</h2>
 
             {% endif %}
+        </div>
         </div>
     </main>
 

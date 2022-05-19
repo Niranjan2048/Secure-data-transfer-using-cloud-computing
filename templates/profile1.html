@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contacts_style.css') }}"><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='final_style.css') }}">
+
+
+    <title>secret 🤫</title>
+</head>
+
+<body>
+    <a href="{{ url_for('start') }}">
+        <img class="logo_img" src= "{{ url_for('static', filename = 'Frame_1.png') }}">
+    </a>
+          <!-- contact cards -->
+          <div class="container">
+        
+            <div class="card">
+            
+              <div class="box">
+                <div class="content">
+                  <h2>\/</h2>
+                  <h3>{{ profile_name }}</h3>
+                  
+                  <a href="{{ url_for('contacts', self_name=self_name, new_contact_name=profile_name) }}" >ADD</a>
+                  <a href="{{ url_for('contacts', self_name=self_name, new_contact_name='') }}" >NOT</a>
+                </div>
+                
+              </div>
+              
+            </div>
+</body>
+</html>
