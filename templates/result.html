@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='secret_logo.jpg') }}">
+    
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='final_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contacts_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result_button.css') }}">
 
-
-    <title>secret</title>
+    <title>secret 🤫</title>
+   
 </head>
 
 <body>
-     <!-- <header class="menu-header">
-        <div>
-            <img class="menu-header__logo"
-                 alt="logo of secret (just stylized S letter)"
-                 src= {{ url_for('static', filename = "secret_logo.jpg") }} >
+    <a href="{{ url_for('start') }}">
+    <img class="logo_img" src= "{{ url_for('static', filename = 'Frame_1.png') }}">
+</a>
 
-            <nav class="menu-header__menu-nav">
-                <ul>
-                    <li aria-label="Home">     <a methods="GET" href="{{ url_for('start') }}"> Home </a> </li>
-                    <li aria-label="Contacts"> <a methods="GET" href="{{ url_for('contacts', self_name=from_name) }}"> Contacts </a> </li>
-                    <li aria-label="Gallery">  <a methods="GET" href=""> Gallery </a> </li>
-                </ul>
-            </nav>
-        </div>
-    </header>  -->
-    <img class="menu-header__logo"
-    alt="logo of secret (stylized S letter)"
-    aria-label="logo of secret (stylized S letter)"
-    src= "{{ url_for('static', filename = 'secret_logo.jpg') }}"
-    href="{{ url_for('start') }}">
-    <nav class="navMenu">
-        <a methods="GET" href="{{ url_for('start') }}">Home</a>
-        <a methods="GET" href="{{ url_for('contacts', self_name=from_name) }}">Contacts</a>
-        <a methods="GET" href="">Gallery</a>
-        <a href="#">About</a>
-        <div class="dot"></div>
-    </nav>
-
-    <main>
-        <div class="center-log">
+     <main>
+        <div class="container" style="display:flex;flex-direction:column;align-items: center;justify-content: center;">
             {% if img_name %}
                 <h2> Your image was successfully encrypted. </h2>
-                <figure>
-                    <img src="{{ url_for('static', filename = img_name) }}" alt="Encrypted image">
-                    <figcaption>Encrypted '{{ img_name }}"</figcaption>
+                <figure >
+                    <img width="500" height="600" src="{{ url_for('static', filename = img_name) }}" alt="Encrypted image">
+                    <h3><figcaption style="text-align: center;" >Encrypted '{{ img_name }}"</figcaption></h3>
                 </figure>
                 <br>
                 <a href="{{ url_for('result', from_name=from_name, to_name=to_name, read_only=read_only) }}" methods="GET">
-                    <button type="submit" class="center_log"> Decrypt </button>
+                    <button type="submit" > Decrypt </button>
                 </a>
             {% else %}
                 <h2>Something went wrong. Sorry, but your image couldn't be encrypted. Please report your problem and try again later.</h2>

@@ -15,6 +15,7 @@
 }
 
 body {
+  /* overflow: hidden; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,41 +212,7 @@ body .container .card .box .content a:hover {
 	 flex-direction: column;
 }
  
-.special_button {
-  position: relative;
-  width: 180px;
-  height: 60px;
-  margin: 20px;
-  line-height: 60px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--color-white);
-  transition: var(--speed-normal);
-  border: 1px solid var(--color-red);
-}
-.special_button:hover {
-  border: 1px solid transparent;
-  background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
-  transition-delay: 0.8s;
-  background-size: 180px;
-  animation: animate var(--speed-fast) steps(8) forwards;
-}
-.special_button:last-of-type {
-  border: 1px solid var(--color-purple);
-}
-.special_button:last-of-type:hover {
-  background: var(--color-purple) url(https://i.postimg.cc/FzBWFtKM/pixel2.png);
-}
-@keyframes animate {
-  0% {
-      background-position-y: 0;
- }
-  100% {
-      background-position-y: -480px;
- }
-}
+
 .image-input {
   text-align: center;
 }
@@ -253,6 +220,7 @@ body .container .card .box .content a:hover {
   display: none;
 }
 .image-input label {
+  border-radius: 10px;
   display: block;
   color: #FFF;
   background: #000;
@@ -294,3 +262,5 @@ body .container .card .box .content a:hover {
     transform: rotate(0deg);
   }
 }
+
+ 

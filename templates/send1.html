@@ -4,37 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    
+
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contacts_style.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='result_button.css') }}">
+    
     <title>secret 🤫</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <a href="{{ url_for('start') }}">
-    <img class="logo_img" src= "{{ url_for('static', filename = 'Frame_1.png') }}">
-</a>
-<div class="container" style="display:flex;flex-direction:column;">
-    <div>
-    <h2> Send image to <strong class="center-log__send_name">{{ to_name }}</strong>: </h2>
-</div>
-    <div class="image-input">
-                <form action="{{ url_for('result', from_name=from_name, to_name=to_name, read_only='yes') }}"
-                      method="POST"
-                      enctype="multipart/form-data">
-                     
-                        <input type="file"   
-                        name="img"
-                        id="imageInput"
-                        accept="image/jpeg,image/png,image/jpg,image/bmp"
-                        required
-                        >
-                        <label for="imageInput" class="image-button"><i class="far fa-image"></i> Choose image</label>
-                        <img src="" class="image-preview">
-                        <span class="change-image">Choose different image</span>
-                    </div>
+        <img class="logo_img" src="{{ url_for('static', filename = 'Frame_1.png') }}">
+    </a>
+    <div class="container" style="display:flex;flex-direction:column;width: auto;">
+        <div>
+            <h2> Send image to <strong class="center-log__send_name">{{ to_name }}</strong>: </h2>
+        </div>
+        <div class="image-input">
+            <form action="{{ url_for('result', from_name=from_name, to_name=to_name, read_only='yes') }}" method="POST"
+                enctype="multipart/form-data">
 
-                    <!-- <input class="special_button"
+                <input style="margin-top: 30px;" type="file" name="img" id="imageInput" accept="image/jpeg,image/png,image/jpg,image/bmp" required>
+                <label for="imageInput" class="image-button"> Choose image</label>
+                <img src="" class="image-preview">
+                <span class="change-image">Choose different image</span>
+        </div>
+
+        <!-- <input class="special_button"
                            type="file"
                            name="img"
                            id="img"
@@ -42,48 +41,45 @@
                            required
                            > -->
 
-                    <input type="text"
-                           name="img_description"
-                           placeholder="description message"
-                           autocomplete="off"
-                           style="width: 80%"
-                           onkeydown="limit_len(this);"
-                           onkeyup="limit_len(this);"
-                           onsubmit="limit_len(this);">
+        <input style="margin-top: 30px;width: 500px ;height: 3rem;padding: 1rem;border-radius: 20px;border: 1px solid black;" type="paragraph" name="img_description" placeholder="description message"
+            autocomplete="off" onkeydown="limit_len(this);" onkeyup="limit_len(this);"
+            onsubmit="limit_len(this);">
 
-                    <input class="special_button" type="submit" value="Send">
+        <button type="submit" value="Send">SEND</button>
 
-                 </form>
+        </form>
 
-            
-        
-</div>
 
-    
+
+    </div>
+
+
 </body>
 <script>
-    $('#imageInput').on('change', function() {
-	$input = $(this);
-	if($input.val().length > 0) {
-		fileReader = new FileReader();
-		fileReader.onload = function (data) {
-		$('.image-preview').attr('src', data.target.result);
-		}
-		fileReader.readAsDataURL($input.prop('files')[0]);
-		$('.image-button').css('display', 'none');
-		$('.image-preview').css('display', 'block');
-		$('.change-image').css('display', 'block');
-	}
-});
-						
-$('.change-image').on('click', function() {
-	$control = $(this);			
-	$('#imageInput').val('');	
-	$preview = $('.image-preview');
-	$preview.attr('src', '');
-	$preview.css('display', 'none');
-	$control.css('display', 'none');
-	$('.image-button').css('display', 'block');
-});
+    $("#imageInput").on("change", function () {
+        $input = $(this);
+        if ($input.val().length > 0) {
+            fileReader = new FileReader();
+            fileReader.onload = function (data) {
+                $(".image-preview").attr("src", data.target.result);
+            };
+            fileReader.readAsDataURL($input.prop("files")[0]);
+            $(".image-button").css("display", "none");
+            $(".image-preview").css("display", "block");
+            $(".change-image").css("display", "block");
+        }
+    });
+
+    $(".change-image").on("click", function () {
+        $control = $(this);
+        $("#imageInput").val("");
+        $preview = $(".image-preview");
+        $preview.attr("src", "");
+        $preview.css("display", "none");
+        $control.css("display", "none");
+        $(".image-button").css("display", "block");
+    });
 </script>
+
+
 </html>

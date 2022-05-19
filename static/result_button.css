@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+
+button{
+  margin-top: 2rem;
+  background:#52d21c;
+  color:rgb(6, 6, 6);
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  border-radius:10px;
+}
+button:hover{
+  background:rgb(50, 210, 173);
+  color:#d68325;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
