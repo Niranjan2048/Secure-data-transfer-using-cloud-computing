@@ -21,7 +21,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   min-height: 100vh;
-  background: #2d7cc1;
+  background: hsl(251, 33%, 50%);
 }
 
 body .container {
@@ -37,9 +37,6 @@ body .container .card {
   position: relative;
   min-width: 320px;
   height: 440px;
-  box-shadow: inset 5px 5px 5px rgba(30, 16, 223, 0.747),
-    inset -5px -5px 15px rgba(18, 53, 225, 0.799),
-    5px 5px 15px rgba(10, 27, 212, 0.765), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   margin: 30px;
   transition: 0.5s;
@@ -47,14 +44,19 @@ body .container .card {
 
 body .container .card:nth-child(1) .box .content a {
   background: #2196f3;
+  box-shadow:  -5px -5px 5px 1px hsla(269, 87%, 47%, 0.747);
 }
 
 body .container .card:nth-child(2) .box .content a {
   background: #401ee9;
+  box-shadow:  -5px -5px 5px 1px hsla(269, 87%, 47%, 0.747);
+
 }
 
 body .container .card:nth-child(3) .box .content a {
   background: #360dcb;
+  box-shadow:  -5px -5px 5px 1px hsla(269, 87%, 47%, 0.747);
+
 }
 
 body .container .card .box {
@@ -211,7 +213,9 @@ body .container .card .box .content a:hover {
 	 align-items: center;
 	 flex-direction: column;
 }
- 
+.search::placeholder {
+   color: rgba(180, 180, 231, 0.5);
+} 
 
 .image-input {
   text-align: center;
