@@ -19,15 +19,13 @@ def start_app():
 
 app = start_app()
 
-
-@app.route('/', methods=["GET", "POST"])
+@app.route('/')
+def index():
+    return render_template('index.html')
+@app.route('/login', methods=["GET", "POST"])
 def start():
     print("MAIN - {}".format(request.method))
     return render_template("main1.html")
-
-@app.route('/gallery')
-def gallery():
-    return render_template("gallery.html")
 
 @app.route('/contacts', methods=["GET", "POST"])
 def contacts(self_name="", new_contact_name=""):

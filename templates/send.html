@@ -21,7 +21,7 @@
 
                 <nav class="menu-header__menu-nav">
                     <ul>
-                        <li aria-label="Home"> <a href="{{ url_for('start') }}"> Home  </a> </li>
+                        <li aria-label="Home"> <a href="{{ url_for('index') }}"> Home  </a> </li>
                         <li aria-label="Contacts"> <a href="{{ url_for('contacts', self_name=from_name) }}" methods="GET"> Contacts </a> </li>
                         <li aria-label="Gallery"> <a href=""> Gallery </a> </li>
                     </ul>
@@ -32,9 +32,9 @@
         alt="logo of secret (stylized S letter)"
         aria-label="logo of secret (stylized S letter)"
         src= "{{ url_for('static', filename = 'secret_logo.jpg') }}"
-        href="{{ url_for('start') }}">
+        href="{{ url_for('index') }}">
         <nav class="navMenu">
-            <a href="{{ url_for('start') }}">Home</a>
+            <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('contacts', self_name=from_name) }}" methods="GET">Contacts</a>
             <a href="#">Gallery</a>
             <a href="#">About</a>

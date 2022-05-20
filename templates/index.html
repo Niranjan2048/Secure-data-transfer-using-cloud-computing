@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>secret 🤫</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <link rel="stylesheet"type="text/css"href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+   
+    <section>
+        <img src="{{ url_for('static', filename = 'stars.png') }}" id="stars">
+        <img src="{{ url_for('static', filename = 'moon.png') }}" id="moon">
+        <img src="{{ url_for('static', filename = 'mountains_behind.png') }}" id="mountains_behind">
+        <h2 id="text">Secure Data Transfer</h2>
+        <a href="{{ url_for('start') }}" id="btn">Sign UP</a>
+
+        <img src="{{ url_for('static', filename = 'mountains_front.png') }}" id="mountains_front">
+      </section>
+      <div class="sec">
+        <h2>Secure Data Transfer</h2>
+        <p>The project's goal is to securely send the textual and other formats of information to preserve the information's privacy, confidentiality, and integrity. Many banking applications use secure data exchange apps and functions to share information using certain channels.
+        Data security and cloud computing are the areas focused on this project. We will use encryption as the security technique to preserve the information properties. We will use suitable algorithm to carry out encryption and decryption. The two-way encryption technique used in the project will strengthen the security. You can also exchange images securely utilizing the application. It is recommended to use SQL database for data storage as it comes with built-in security tools and features. You can use the AWS cloud server to activate the entire process.
+        <br><br>
+        APPLICATIONS
+        <BR></BR>
+        1. Encrypts data at rest
+        Files aren't only vulnerable during transmission. Because all these files eventually end up in file transfer servers, most malicious invidious prefer to attack those servers instead. That's why it's important to apply encryption there as well. A server that protects files through encrypted online storage will prevent attackers from obtaining confidential information even if they succeed in infiltrating the server or in getting hold of the hard disk.
+        But there's one thing you should remember about these encrypted storage solutions. The location of the decryption key plays a crucial role here. If the decryption key is stored in the same location as the encrypted files and a skilled hacker finds it, it would be trivial for the hacker to decrypt your files.
+        You can provide better protection if you employ a public key-based technology, which will allow you to store your decryption key in a separate location. Even if the attacker manages to carry away your entire server, he won't be able to decrypt your files.
+        To learn more about public key encryption and how well it protects data at rest, read this post on PGP encryption.
+        <br><br>
+        2. Preserves data integrity
+        There can be instances when keeping the contents of a file confidential is not as important as preserving them. For example, you may find it alright for people to view your balance sheet but you certainly wouldn't want anyone altering it.
+        If data integrity is important to you, then your system should be capable of preventing or at least detecting (so the recipient will know) any unauthorized modifications.
+        The thing is, encryption per se cannot prevent a file from being modified. However, certain cryptographic systems already have this capability built-in, so you might want to take that into consideration when choosing a system.
+        <br><br>
+        3. Supports strong authentication methods
+        One way a hacker can gain access to your system is by impersonating a legitimate user. If your system can be easily fooled, your toast. To prevent this kind of attack, your system should have a strong mechanism that can accurately validate a user's identity. 
+        There are many ways to do this. The most basic is a username and password. You shouldn't rely on that alone. You can use SSL FTP, which not only authenticates (through certificates) but also provides encryption. In addition to that, you can also deploy other authentication methods like LDAP, NTLM, or PAM. 
+        If you want an extra layer of authentication above your usual authentication methods, I strongly recommend phone authentication. This highly advanced two factor authentication method will require your users to answer a call and confirm their desire to login. Even if a hacker manages to acquire a username and password, he won't be able to login to your server if he doesn't have the corresponding user's phone.
+        <br><br> 
+        CONCLUSION 
+        <br><br>
+        One of the biggest security worries with the cloud computing model is the sharing of resources. Cloud service providers need to inform their customers on the level of security that they provide on their cloud. In this paper, we first discussed various models of cloud computing, security issues and research challenges in cloud computing. Data security is major issue for Cloud Computing. There are several other security challenges including security aspects of network and virtualization. This
+        paper has highlighted all these issues of cloud computing. We believe that due to the complexity of the cloud, it will be difficult to achieve end-to-end security. New security techniques need to be developed and older security techniques needed to be radically tweaked to be able to work with the cloud’s architecture. As the development of cloud computing technology is still at an early stage, we hope our work will provide a better understanding of the design challenges of cloud
+        computing, and pave the way for further research in this area.
+        </p>
+      </div>
+      <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            })
+
+
+      </script>
+  </body>
+</html>

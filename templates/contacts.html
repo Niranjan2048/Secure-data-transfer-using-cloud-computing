@@ -15,9 +15,9 @@
    
     <img class="menu-header__logo" alt="logo of secret (stylized S letter)"
         aria-label="logo of secret (stylized S letter)" src="{{ url_for('static', filename = 'secret_logo.jpg') }}"
-        href="{{ url_for('start') }}">
+        href="{{ url_for('index') }}">
     <nav class="navMenu">
-        <a methods="GET" href="{{ url_for('start') }}">Home</a>
+        <a methods="GET" href="{{ url_for('index') }}">Home</a>
         <a methods="GET" href="{{ url_for('contacts', self_name=self_name) }}">Contacts</a>
         <a methods="GET" href="">Gallery</a>
         <a href="#">About</a>
